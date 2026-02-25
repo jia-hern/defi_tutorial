@@ -68,7 +68,10 @@ contract TokenFarm {
             address recipient = stakers[i];
             uint balance = stakingBalance[recipient];
             if(balance > 0) {
-                dappToken.transfer(recipient, balance);
+                uint reward1 = balance * 50 / 100;
+                uint reward2 = balance * 30 / 100;
+                uint reward3 = balance * 20 / 100;
+                dappToken.transfer(recipient, reward1 + reward2 + reward3);
             }
         }
     }
